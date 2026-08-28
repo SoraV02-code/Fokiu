@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f6eee8" />
+    <title>Una nota para ti</title>
+    <link rel="stylesheet" href="assets/fonts/google-fonts.css" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page-shell">
+      <section class="intro" aria-labelledby="page-title">
+        <p class="eyebrow">Para la persona que hace mis días más felices</p>
+        <h1 id="page-title">Una nota<br /><em>para ti.</em></h1>
+        <p class="intro-copy">Eres la musa de mi corazón.</p>
+        <div class="date-stamp" aria-label="Fecha especial">
+          <span class="stamp-line"></span>
+          <span>· Dylan ·</span>
+          <span class="stamp-line"></span>
+        </div>
+      </section>
+
+      <section class="letter-stage" aria-label="Carta de amor">
+        <div class="sparkle sparkle-one">✦</div>
+        <div class="sparkle sparkle-two">✦</div>
+        <div class="letter-shadow"></div>
+        <article class="letter-card" id="letterCard">
+          <div class="letter-cover" id="letterCover">
+            <div class="seal">♥</div>
+            <p class="cover-kicker">abre cuando lo necesites</p>
+            <h2>Para mi<br /><span>niña hermosa</span></h2>
+            <div class="cover-mark">Nay ♥</div>
+          </div>
+          <div class="letter-inside" id="letterInside" aria-hidden="true">
+            <p class="letter-date" id="letterDate"></p>
+            <img class="letter-photo" src="assets/images/letter-photo.png" alt="Imagen de la nota" />
+            <h2 id="letterGreeting"></h2>
+            <p id="letterParagraphOne"></p>
+            <p id="letterParagraphTwo"></p>
+            <p id="letterParagraphThree"></p>
+            <p class="signature" id="letterSignature"></p>
+          </div>
+        </article>
+        <div class="open-hint" id="openHint">Te amo mi amorcito</div>
+      </section>
+
+      <section class="controls" aria-live="polite">
+        <button class="open-button" id="openButton" type="button">Apretame <span>→</span></button>
+        <p class="cooldown-note" id="cooldownNote">Una vez abierta, podrás volver a leerla mañana.</p>
+      </section>
+    </main>
+    <footer>hecho unicamente para ti</footer>
+    <script src="script.js"></script>
+  </body>
+</html>
