@@ -1,6 +1,7 @@
 const COOLDOWN_MS = 24 * 60 * 60 * 1000;
 const STORAGE_KEY = "love-letter-last-opened";
 const MESSAGE_KEY = "love-letter-message-index";
+const OPENED_DATE_KEY = "love-letter-opened-date";
 
 const messages = [
   {
@@ -68,9 +69,17 @@ function getNextMessageIndex() {
 }
 
 function getRemainingTime() {
-  const lastOpened = Number(localStorage.getItem(STORAGE_KEY));
-  if (!lastOpened) return 0;
-  return Math.max(0, COOLDOWN_MS - (Date.now() - lastOpened));
+  const openedDate = localStorage.getItem(OPENED_DATE_KEY);
+  if (!openedDate || openedDate !== getTodayKey()) return 0;
+
+  const tomorrow = new Date();
+  tomorrow.setHours(24, 0, 0, 0);
+  return Math.max(0, tomorrow.getTime() - Date.now());
+}
+
+function getTodayKey() {
+  const today = new Date();
+  return `${today.getFullYear()}-${today.getMonth()}-${today.getDate()}`;
 }
 
 function formatRemainingTime(milliseconds) {
@@ -102,6 +111,7 @@ openButton.addEventListener("click", () => {
   renderMessage(messageIndex);
   localStorage.setItem(MESSAGE_KEY, String(messageIndex));
   localStorage.setItem(STORAGE_KEY, String(Date.now()));
+  localStorage.setItem(OPENED_DATE_KEY, getTodayKey());
   letterCard.classList.add("open");
   letterInside.setAttribute("aria-hidden", "false");
   openHint.textContent = "guardada en mi corazón";
